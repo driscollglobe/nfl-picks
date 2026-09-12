@@ -236,7 +236,7 @@ export default function Home() {
     <main className="driscoll-app">
       <Tabs value={activeView} onValueChange={(value) => setActiveView(value as ViewName)} className="app-frame">
         <header className="app-topbar">
-          <div className="app-brand"><Image className="bulldog-mark" src="/driscoll-logo.png" alt="Driscoll NFL Model bulldog logo" width={112} height={112} unoptimized priority /></div>
+          <div className="app-brand"><Image className="bulldog-mark" src="/driscoll-logo-20260912.png" alt="Driscoll NFL Model bulldog logo" width={112} height={112} unoptimized priority /></div>
           <TabsList variant="line" aria-label="Dashboard views" className="app-navigation">
             <TabsTrigger value="board"><Activity size={16} />Game board</TabsTrigger>
             <TabsTrigger value="tracking">My record</TabsTrigger>
