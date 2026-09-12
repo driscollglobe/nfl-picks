@@ -237,10 +237,9 @@ export default function Home() {
       <Tabs value={activeView} onValueChange={(value) => setActiveView(value as ViewName)} className="app-frame">
         <header className="app-topbar">
           <div className="edition-meta">
-            <Image src="/driscoll-logo.png" alt="Driscoll bulldog" width={44} height={44} unoptimized priority />
-            <div><strong>The football edition</strong><span>{dashboard.season} season · Week {dashboard.week}</span></div>
+            <div><strong>NFL against the spread</strong><span>{dashboard.season} season · Week {dashboard.week}</span></div>
           </div>
-          <div className="app-brand"><strong>DRISCOLL GLOBE</strong><p>Football · Numbers · Perspective</p></div>
+          <div className="app-brand"><Image className="bulldog-mark" src="/driscoll-logo.png" alt="Driscoll NFL Model bulldog logo" width={88} height={88} unoptimized priority /><div><strong>DRISCOLL</strong><p>NFL MODEL</p></div></div>
           <TabsList variant="line" aria-label="Dashboard views" className="app-navigation">
             <TabsTrigger value="board"><Activity size={16} />Game board</TabsTrigger>
             <TabsTrigger value="ratings"><Trophy size={16} />Ratings</TabsTrigger>
@@ -265,7 +264,7 @@ export default function Home() {
           <TabsContent value="ratings"><RatingsTable ratings={dashboard.ratings} epaWeight={settings.epaWeight} /></TabsContent>
           <TabsContent value="backtest"><BacktestPanel rows={dashboard.backtest} breakEvenRate={dashboard.defaults.breakEvenRate} selectedThreshold={settings.threshold} onSelectThreshold={(threshold) => updateSettings({ threshold })} /></TabsContent>
           <TabsContent value="method"><Methodology generatedAt={dashboard.generatedAt} source={dashboard.source} warnings={dashboard.warnings} /></TabsContent>
-          <footer className="app-footer"><span>DRISCOLL GLOBE / FOOTBALL</span><span>Exploration only · Changes here do not alter your saved picks.</span></footer>
+          <footer className="app-footer"><span>DRISCOLL NFL MODEL</span><span>Exploration only · Changes here do not alter your saved picks.</span></footer>
         </div>
       </Tabs>
     </main>

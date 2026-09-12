@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Driscoll Globe — Football',
+  title: 'Driscoll NFL Model',
   icons: { icon: '/driscoll-logo.png' },
   description:
     'An interactive NFL against-the-spread model dashboard for the 2026 season.',
