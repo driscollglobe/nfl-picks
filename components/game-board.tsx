@@ -83,7 +83,7 @@ export function GameBoard({ games, threshold }: GameBoardProps) {
 
   return (
     <div>
-      <div className="mb-5 grid grid-cols-2 gap-px border border-white/10 bg-white/10 lg:grid-cols-4">
+      <div className="game-board-stats mb-6 grid grid-cols-2 gap-px border border-white/10 bg-white/10 lg:grid-cols-4">
         {[
           ["Playable", actionable.length.toString()],
           ["ELWAY agrees", `${agreementCount}/${actionable.length}`],
@@ -102,7 +102,7 @@ export function GameBoard({ games, threshold }: GameBoardProps) {
       <div className="mb-3 flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
         <div>
           <h2 className="text-sm font-semibold uppercase tracking-[0.12em]">
-            Week 1 game board
+            Week {games[0]?.week ?? 1} game board
           </h2>
           <p className="mt-1 text-xs text-[#718078]">
             Market lines are the recorded line at pick time. Open a game for the
@@ -151,7 +151,7 @@ export function GameBoard({ games, threshold }: GameBoardProps) {
           </Button>
         </div>
       ) : (
-        <div className="border border-white/10">
+        <div className="game-board-shell border border-white/10">
           <div className="hidden grid-cols-[1.35fr_.8fr_.8fr_.65fr_.75fr_18px] gap-4 border-b border-white/10 bg-[#0a1713] px-5 py-3 font-mono text-[10px] uppercase tracking-[0.14em] text-[#67776f] md:grid">
             <span>Matchup</span>
             <span>Model</span>

@@ -1,11 +1,11 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import Image from "next/image";
 import {
   Activity,
   BarChart3,
   BookOpen,
-  GitBranch,
   Radio,
   ShieldCheck,
   Trophy,
@@ -234,10 +234,10 @@ export default function Home() {
   );
 
   return (
-    <main className="min-h-screen bg-[#07110e] text-[#f4f6ed]">
+    <main className="driscoll-app min-h-screen bg-[#07110e] text-[#f4f6ed]">
       <div className="border-b border-white/10 bg-[#0a1713] px-5 py-2 text-[10px] uppercase tracking-[0.16em] text-[#8ea097] sm:px-8 sm:text-[11px]">
         <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-4">
-          <span>{dashboard.season} season / live model desk</span>
+          <span>DRISCOLL / FOOTBALL INTELLIGENCE</span>
           <span className="flex items-center gap-2 text-[#a9ff62]">
             <Radio size={11} /> Week {dashboard.week} board · {dashboard.games.length}{" "}
             games logged
@@ -250,19 +250,21 @@ export default function Home() {
         onValueChange={(value) => setActiveView(value as ViewName)}
         className="mx-auto max-w-[1440px] px-5 pb-16 pt-7 sm:px-8"
       >
-        <header className="mb-6 border-b border-white/10 pb-6">
+        <header className="brand-header mb-6 border-b border-white/10 pb-6">
           <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
-            <div>
+            <div className="brand-lockup">
+              <Image className="brand-logo" src="/driscoll-logo.png" alt="Driscoll NFL Model bulldog crest" width={128} height={128} unoptimized priority />
+              <div>
               <div className="mb-3 flex items-center gap-2 font-mono text-xs uppercase tracking-[0.16em] text-[#a9ff62]">
-                <Activity size={14} /> Against the spread
+                {dashboard.season} SEASON · WEEK {dashboard.week}
               </div>
               <h1 className="text-4xl font-semibold tracking-[-0.045em] sm:text-5xl">
-                NFL Picks Lab
+                THE WEEKLY EDGE<span className="brand-period">.</span>
               </h1>
               <p className="mt-3 max-w-2xl text-sm leading-6 text-[#93a39b] sm:text-base">
-                Stress-test the weekly board, inspect every input, and keep the
-                model’s losing backtest in plain sight.
+                Your numbers. Your assumptions. Every game on the board.
               </p>
+              </div>
             </div>
             <div className="grid grid-cols-3 gap-px border border-white/10 bg-white/10 font-mono text-[10px] uppercase tracking-[0.1em] text-[#93a39b]">
               <div className="bg-[#0c1915] px-3 py-2.5">
@@ -319,18 +321,14 @@ export default function Home() {
             </TabsList>
             <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.1em] text-[#718078]">
               <span className="inline-flex items-center gap-1.5">
-                <ShieldCheck size={13} className="text-[#a9ff62]" /> Private preview
-              </span>
-              <span className="h-3 w-px bg-white/10" />
-              <span className="inline-flex items-center gap-1.5">
-                <GitBranch size={13} /> driscollglobe repo target
+                <ShieldCheck size={13} className="text-[#a9ff62]" /> Private model
               </span>
             </div>
           </div>
         </header>
 
         <TabsContent value="board">
-          <section className="grid gap-5 xl:grid-cols-[310px_minmax(0,1fr)]">
+          <section className="model-workspace grid gap-5 xl:grid-cols-[280px_minmax(0,1fr)]">
             <ModelControls
               settings={settings}
               defaults={dashboard.defaults}

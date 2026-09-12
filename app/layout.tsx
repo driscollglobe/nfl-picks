@@ -13,7 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'NFL Picks Lab',
+  title: 'Driscoll — The Weekly Edge',
+  icons: { icon: '/driscoll-logo.png' },
   description:
     'An interactive NFL against-the-spread model dashboard for the 2026 season.',
 };
