@@ -28,7 +28,7 @@ export function ModelControls({
       <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
         <div className="flex items-center gap-2 text-sm font-semibold">
           <SlidersHorizontal size={16} className="text-[#a9ff62]" />
-          Model controls
+          Model settings
         </div>
         <Button
           type="button"

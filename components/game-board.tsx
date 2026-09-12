@@ -99,14 +99,13 @@ export function GameBoard({ games, threshold }: GameBoardProps) {
         ))}
       </div>
 
-      <div className="mb-3 flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
+      <div className="board-toolbar mb-3 flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
         <div>
-          <h2 className="text-sm font-semibold uppercase tracking-[0.12em]">
-            Week {games[0]?.week ?? 1} game board
+          <h2 className="text-base font-semibold tracking-tight">
+            Matchups
           </h2>
           <p className="mt-1 text-xs text-[#718078]">
-            Market lines are the recorded line at pick time. Open a game for the
-            inputs.
+            {agreementCount} picks agree with ELWAY · {passCount} passes · Open a matchup for details
           </p>
         </div>
         <ButtonGroup aria-label="Filter games">

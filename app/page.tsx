@@ -6,7 +6,6 @@ import {
   Activity,
   BarChart3,
   BookOpen,
-  Radio,
   ShieldCheck,
   Trophy,
 } from "lucide-react";
@@ -234,135 +233,39 @@ export default function Home() {
   );
 
   return (
-    <main className="driscoll-app min-h-screen bg-[#07110e] text-[#f4f6ed]">
-      <div className="border-b border-white/10 bg-[#0a1713] px-5 py-2 text-[10px] uppercase tracking-[0.16em] text-[#8ea097] sm:px-8 sm:text-[11px]">
-        <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-4">
-          <span>DRISCOLL / FOOTBALL INTELLIGENCE</span>
-          <span className="flex items-center gap-2 text-[#a9ff62]">
-            <Radio size={11} /> Week {dashboard.week} board · {dashboard.games.length}{" "}
-            games logged
-          </span>
-        </div>
-      </div>
-
-      <Tabs
-        value={activeView}
-        onValueChange={(value) => setActiveView(value as ViewName)}
-        className="mx-auto max-w-[1440px] px-5 pb-16 pt-7 sm:px-8"
-      >
-        <header className="brand-header mb-6 border-b border-white/10 pb-6">
-          <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
-            <div className="brand-lockup">
-              <Image className="brand-logo" src="/driscoll-logo.png" alt="Driscoll NFL Model bulldog crest" width={128} height={128} unoptimized priority />
-              <div>
-              <div className="mb-3 flex items-center gap-2 font-mono text-xs uppercase tracking-[0.16em] text-[#a9ff62]">
-                {dashboard.season} SEASON · WEEK {dashboard.week}
-              </div>
-              <h1 className="text-4xl font-semibold tracking-[-0.045em] sm:text-5xl">
-                THE WEEKLY EDGE<span className="brand-period">.</span>
-              </h1>
-              <p className="mt-3 max-w-2xl text-sm leading-6 text-[#93a39b] sm:text-base">
-                Your numbers. Your assumptions. Every game on the board.
-              </p>
-              </div>
-            </div>
-            <div className="grid grid-cols-3 gap-px border border-white/10 bg-white/10 font-mono text-[10px] uppercase tracking-[0.1em] text-[#93a39b]">
-              <div className="bg-[#0c1915] px-3 py-2.5">
-                <span className="block text-[#526159]">Picks</span>
-                <strong className="mt-0.5 block text-base text-[#f4f6ed]">
-                  {playable.length}
-                </strong>
-              </div>
-              <div className="bg-[#0c1915] px-3 py-2.5">
-                <span className="block text-[#526159]">Top edge</span>
-                <strong className="mt-0.5 block text-base text-[#a9ff62]">
-                  {topEdge.toFixed(1)}
-                </strong>
-              </div>
-              <div className="bg-[#0c1915] px-3 py-2.5">
-                <span className="block text-[#526159]">Blend</span>
-                <strong className="mt-0.5 block text-base text-[#f4f6ed]">
-                  {Math.round(settings.epaWeight * 100)}/{Math.round((1 - settings.epaWeight) * 100)}
-                </strong>
-              </div>
-            </div>
+    <main className="driscoll-app">
+      <Tabs value={activeView} onValueChange={(value) => setActiveView(value as ViewName)} className="app-frame">
+        <header className="app-topbar">
+          <div className="app-brand">
+            <Image src="/driscoll-logo.png" alt="Driscoll bulldog" width={48} height={48} unoptimized priority />
+            <div><strong>Driscoll<span> / NFL</span></strong><p>Model workspace</p></div>
           </div>
-
-          <div className="mt-6 flex flex-col justify-between gap-4 md:flex-row md:items-end">
-            <TabsList
-              variant="line"
-              aria-label="Dashboard views"
-              className="h-auto w-full justify-start gap-6 overflow-x-auto rounded-none p-0 md:w-auto"
-            >
-              <TabsTrigger
-                value="board"
-                className="h-auto flex-none rounded-none px-0 pb-2 font-mono text-[11px] uppercase tracking-[0.11em] text-[#718078] data-active:text-[#a9ff62] after:bg-[#a9ff62]"
-              >
-                <Activity data-icon="inline-start" /> Model Lab
-              </TabsTrigger>
-              <TabsTrigger
-                value="ratings"
-                className="h-auto flex-none rounded-none px-0 pb-2 font-mono text-[11px] uppercase tracking-[0.11em] text-[#718078] data-active:text-[#a9ff62] after:bg-[#a9ff62]"
-              >
-                <Trophy data-icon="inline-start" /> Ratings
-              </TabsTrigger>
-              <TabsTrigger
-                value="backtest"
-                className="h-auto flex-none rounded-none px-0 pb-2 font-mono text-[11px] uppercase tracking-[0.11em] text-[#718078] data-active:text-[#a9ff62] after:bg-[#a9ff62]"
-              >
-                <BarChart3 data-icon="inline-start" /> Backtest
-              </TabsTrigger>
-              <TabsTrigger
-                value="method"
-                className="h-auto flex-none rounded-none px-0 pb-2 font-mono text-[11px] uppercase tracking-[0.11em] text-[#718078] data-active:text-[#a9ff62] after:bg-[#a9ff62]"
-              >
-                <BookOpen data-icon="inline-start" /> How it works
-              </TabsTrigger>
-            </TabsList>
-            <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.1em] text-[#718078]">
-              <span className="inline-flex items-center gap-1.5">
-                <ShieldCheck size={13} className="text-[#a9ff62]" /> Private model
-              </span>
-            </div>
-          </div>
+          <TabsList variant="line" aria-label="Dashboard views" className="app-navigation">
+            <TabsTrigger value="board"><Activity size={16} />Game board</TabsTrigger>
+            <TabsTrigger value="ratings"><Trophy size={16} />Ratings</TabsTrigger>
+            <TabsTrigger value="backtest"><BarChart3 size={16} />Backtest</TabsTrigger>
+            <TabsTrigger value="method"><BookOpen size={16} />Method</TabsTrigger>
+          </TabsList>
+          <span className="private-label"><ShieldCheck size={14} />Private workspace</span>
         </header>
-
-        <TabsContent value="board">
-          <section className="model-workspace grid gap-5 xl:grid-cols-[280px_minmax(0,1fr)]">
-            <ModelControls
-              settings={settings}
-              defaults={dashboard.defaults}
-              ranges={dashboard.controlRanges}
-              onChange={updateSettings}
-              onReset={resetSettings}
-            />
-            <GameBoard games={evaluatedGames} threshold={settings.threshold} />
-          </section>
-        </TabsContent>
-
-        <TabsContent value="ratings">
-          <RatingsTable
-            ratings={dashboard.ratings}
-            epaWeight={settings.epaWeight}
-          />
-        </TabsContent>
-
-        <TabsContent value="backtest">
-          <BacktestPanel
-            rows={dashboard.backtest}
-            breakEvenRate={dashboard.defaults.breakEvenRate}
-            selectedThreshold={settings.threshold}
-            onSelectThreshold={(threshold) => updateSettings({ threshold })}
-          />
-        </TabsContent>
-
-        <TabsContent value="method">
-          <Methodology
-            generatedAt={dashboard.generatedAt}
-            source={dashboard.source}
-            warnings={dashboard.warnings}
-          />
-        </TabsContent>
+        <div className="app-content">
+          <div className="workspace-heading">
+            <div><div className="season-label"><span />{dashboard.season} season / Week {dashboard.week}</div>
+            <h1>{activeView === "board" ? "The game board" : activeView === "ratings" ? "Power ratings" : activeView === "backtest" ? "The track record" : "Inside the model"}</h1>
+            <p>{activeView === "board" ? "Find the gap between your model and the market." : "Every assumption, input, and result in the open."}</p></div>
+            <div className="quick-stats"><div><span>Qualifying picks</span><strong>{playable.length}<small> / {dashboard.games.length}</small></strong></div><div><span>Largest edge</span><strong>{topEdge.toFixed(1)}<small> pts</small></strong></div></div>
+          </div>
+          <TabsContent value="board">
+            <section className="model-workspace">
+              <GameBoard games={evaluatedGames} threshold={settings.threshold} />
+              <div className="tuning-panel"><ModelControls settings={settings} defaults={dashboard.defaults} ranges={dashboard.controlRanges} onChange={updateSettings} onReset={resetSettings} /></div>
+            </section>
+          </TabsContent>
+          <TabsContent value="ratings"><RatingsTable ratings={dashboard.ratings} epaWeight={settings.epaWeight} /></TabsContent>
+          <TabsContent value="backtest"><BacktestPanel rows={dashboard.backtest} breakEvenRate={dashboard.defaults.breakEvenRate} selectedThreshold={settings.threshold} onSelectThreshold={(threshold) => updateSettings({ threshold })} /></TabsContent>
+          <TabsContent value="method"><Methodology generatedAt={dashboard.generatedAt} source={dashboard.source} warnings={dashboard.warnings} /></TabsContent>
+          <footer className="app-footer"><span>DRISCOLL NFL MODEL</span><span>Exploration only · Changes here do not alter your saved picks.</span></footer>
+        </div>
       </Tabs>
     </main>
   );

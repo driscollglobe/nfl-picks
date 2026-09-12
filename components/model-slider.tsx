@@ -43,7 +43,7 @@ export function ModelSlider({
           const scalar = Array.isArray(nextValue) ? nextValue[0] : nextValue;
           onChange(Number(scalar));
         }}
-        className="mt-3 [&_[data-slot=slider-range]]:bg-[#a9ff62] [&_[data-slot=slider-thumb]]:size-4 [&_[data-slot=slider-thumb]]:border-[#a9ff62] [&_[data-slot=slider-thumb]]:bg-[#0c1915] [&_[data-slot=slider-thumb]]:ring-[#a9ff62]/30 [&_[data-slot=slider-track]]:bg-[#2b3b33]"
+        className="mt-3"
       />
       <div className="mt-1.5 flex justify-between font-mono text-[9px] text-[#526159]">
         <span>{range.min}</span>
