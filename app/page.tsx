@@ -6,7 +6,6 @@ import {
   Activity,
   BarChart3,
   BookOpen,
-  ShieldCheck,
   Trophy,
 } from "lucide-react";
 
@@ -15,6 +14,7 @@ import { GameBoard } from "@/components/game-board";
 import { Methodology } from "@/components/methodology";
 import { ModelControls } from "@/components/model-controls";
 import { RatingsTable } from "@/components/ratings-table";
+import { TrackingPanel } from "@/components/tracking-panel";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   defaultSettings,
@@ -24,7 +24,7 @@ import {
 } from "@/lib/model";
 import modelData from "@/lib/model-data.json";
 
-type ViewName = "board" | "ratings" | "backtest" | "method";
+type ViewName = "board" | "ratings" | "backtest" | "method" | "tracking";
 
 type ToolDefinition = {
   name: string;
@@ -236,24 +236,21 @@ export default function Home() {
     <main className="driscoll-app">
       <Tabs value={activeView} onValueChange={(value) => setActiveView(value as ViewName)} className="app-frame">
         <header className="app-topbar">
-          <div className="edition-meta">
-            <div><strong>NFL against the spread</strong><span>{dashboard.season} season · Week {dashboard.week}</span></div>
-          </div>
-          <div className="app-brand"><Image className="bulldog-mark" src="/driscoll-logo.png" alt="Driscoll NFL Model bulldog logo" width={88} height={88} unoptimized priority /><div><strong>DRISCOLL</strong><p>NFL MODEL</p></div></div>
+          <div className="app-brand"><Image className="bulldog-mark" src="/driscoll-logo.png" alt="Driscoll NFL Model bulldog logo" width={112} height={112} unoptimized priority /></div>
           <TabsList variant="line" aria-label="Dashboard views" className="app-navigation">
             <TabsTrigger value="board"><Activity size={16} />Game board</TabsTrigger>
+            <TabsTrigger value="tracking">My record</TabsTrigger>
             <TabsTrigger value="ratings"><Trophy size={16} />Ratings</TabsTrigger>
             <TabsTrigger value="backtest"><BarChart3 size={16} />Backtest</TabsTrigger>
             <TabsTrigger value="method"><BookOpen size={16} />Method</TabsTrigger>
           </TabsList>
-          <span className="private-label"><ShieldCheck size={14} />Private workspace</span>
         </header>
         <div className="app-content">
           <div className="workspace-heading">
             <div><div className="season-label"><span />{dashboard.season} season / Week {dashboard.week}</div>
-            <h1>{activeView === "board" ? `Week ${dashboard.week}, by the numbers.` : activeView === "ratings" ? "The power rankings." : activeView === "backtest" ? "The record, without spin." : "Inside the model."}</h1>
+            <h1>{activeView === "board" ? `Week ${dashboard.week} picks` : activeView === "tracking" ? "My record" : activeView === "ratings" ? "Power ratings" : activeView === "backtest" ? "Backtest" : "The model"}</h1>
             <p>{activeView === "board" ? "Find the gap between your model and the market." : "Every assumption, input, and result in the open."}</p></div>
-            <div className="quick-stats"><div><span>Qualifying picks</span><strong>{playable.length}<small> / {dashboard.games.length}</small></strong></div><div><span>Largest edge</span><strong>{topEdge.toFixed(1)}<small> pts</small></strong></div></div>
+            {activeView !== "tracking" && <div className="quick-stats"><div><span>Qualifying picks</span><strong>{playable.length}<small> / {dashboard.games.length}</small></strong></div><div><span>Largest edge</span><strong>{topEdge.toFixed(1)}<small> pts</small></strong></div></div>}
           </div>
           <TabsContent value="board">
             <section className="model-workspace">
@@ -262,6 +259,7 @@ export default function Home() {
             </section>
           </TabsContent>
           <TabsContent value="ratings"><RatingsTable ratings={dashboard.ratings} epaWeight={settings.epaWeight} /></TabsContent>
+          <TabsContent value="tracking"><TrackingPanel data={dashboard.tracking} season={dashboard.season} generatedAt={dashboard.generatedAt} /></TabsContent>
           <TabsContent value="backtest"><BacktestPanel rows={dashboard.backtest} breakEvenRate={dashboard.defaults.breakEvenRate} selectedThreshold={settings.threshold} onSelectThreshold={(threshold) => updateSettings({ threshold })} /></TabsContent>
           <TabsContent value="method"><Methodology generatedAt={dashboard.generatedAt} source={dashboard.source} warnings={dashboard.warnings} /></TabsContent>
           <footer className="app-footer"><span>DRISCOLL NFL MODEL</span><span>Exploration only · Changes here do not alter your saved picks.</span></footer>

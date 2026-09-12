@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-12T12:22:37.703546+00:00",
+  "generatedAt": "2026-09-12T12:57:07.004962+00:00",
   "season": 2026,
   "week": 1,
   "defaults": {
@@ -1407,6 +1407,231 @@
       "beats_break_even": false
     }
   ],
+  "tracking": {
+    "overall": {
+      "picks": 5,
+      "wins": 0,
+      "losses": 0,
+      "pushes": 0,
+      "pending": 5,
+      "passes": 9,
+      "locked": 2,
+      "winRate": null,
+      "averageClv": null,
+      "clvCount": 0
+    },
+    "weeks": [
+      {
+        "season": 2026,
+        "week": 1,
+        "picks": 5,
+        "wins": 0,
+        "losses": 0,
+        "pushes": 0,
+        "pending": 5,
+        "passes": 9,
+        "locked": 2,
+        "winRate": null,
+        "averageClv": null,
+        "clvCount": 0
+      }
+    ],
+    "seasons": [
+      {
+        "season": 2026,
+        "picks": 5,
+        "wins": 0,
+        "losses": 0,
+        "pushes": 0,
+        "pending": 5,
+        "passes": 9,
+        "locked": 2,
+        "winRate": null,
+        "averageClv": null,
+        "clvCount": 0
+      }
+    ],
+    "rows": [
+      {
+        "season": 2026,
+        "week": 1,
+        "game_id": "2026_01_ARI_LAC",
+        "home": "LAC",
+        "away": "ARI",
+        "pick": "AWAY",
+        "market_spread_at_pick": 9.5,
+        "result_ats": null,
+        "clv": null
+      },
+      {
+        "season": 2026,
+        "week": 1,
+        "game_id": "2026_01_ATL_PIT",
+        "home": "PIT",
+        "away": "ATL",
+        "pick": "AWAY",
+        "market_spread_at_pick": 6.0,
+        "result_ats": null,
+        "clv": null
+      },
+      {
+        "season": 2026,
+        "week": 1,
+        "game_id": "2026_01_BAL_IND",
+        "home": "IND",
+        "away": "BAL",
+        "pick": "PASS",
+        "market_spread_at_pick": -3.5,
+        "result_ats": null,
+        "clv": null
+      },
+      {
+        "season": 2026,
+        "week": 1,
+        "game_id": "2026_01_BUF_HOU",
+        "home": "HOU",
+        "away": "BUF",
+        "pick": "PASS",
+        "market_spread_at_pick": -1.5,
+        "result_ats": null,
+        "clv": null
+      },
+      {
+        "season": 2026,
+        "week": 1,
+        "game_id": "2026_01_CHI_CAR",
+        "home": "CAR",
+        "away": "CHI",
+        "pick": "PASS",
+        "market_spread_at_pick": -3.0,
+        "result_ats": null,
+        "clv": null
+      },
+      {
+        "season": 2026,
+        "week": 1,
+        "game_id": "2026_01_CLE_JAX",
+        "home": "JAX",
+        "away": "CLE",
+        "pick": "PASS",
+        "market_spread_at_pick": 8.5,
+        "result_ats": null,
+        "clv": null
+      },
+      {
+        "season": 2026,
+        "week": 1,
+        "game_id": "2026_01_DAL_NYG",
+        "home": "NYG",
+        "away": "DAL",
+        "pick": "HOME",
+        "market_spread_at_pick": -3.0,
+        "result_ats": null,
+        "clv": null
+      },
+      {
+        "season": 2026,
+        "week": 1,
+        "game_id": "2026_01_DEN_KC",
+        "home": "KC",
+        "away": "DEN",
+        "pick": "AWAY",
+        "market_spread_at_pick": 2.5,
+        "result_ats": null,
+        "clv": null
+      },
+      {
+        "season": 2026,
+        "week": 1,
+        "game_id": "2026_01_GB_MIN",
+        "home": "MIN",
+        "away": "GB",
+        "pick": "PASS",
+        "market_spread_at_pick": 1.5,
+        "result_ats": null,
+        "clv": null
+      },
+      {
+        "season": 2026,
+        "week": 1,
+        "game_id": "2026_01_MIA_LV",
+        "home": "LV",
+        "away": "MIA",
+        "pick": "PASS",
+        "market_spread_at_pick": 3.0,
+        "result_ats": null,
+        "clv": null
+      },
+      {
+        "season": 2026,
+        "week": 1,
+        "game_id": "2026_01_NE_SEA",
+        "home": "SEA",
+        "away": "NE",
+        "pick": "LOCKED",
+        "market_spread_at_pick": null,
+        "result_ats": null,
+        "clv": null
+      },
+      {
+        "season": 2026,
+        "week": 1,
+        "game_id": "2026_01_NO_DET",
+        "home": "DET",
+        "away": "NO",
+        "pick": "PASS",
+        "market_spread_at_pick": 7.0,
+        "result_ats": null,
+        "clv": null
+      },
+      {
+        "season": 2026,
+        "week": 1,
+        "game_id": "2026_01_NYJ_TEN",
+        "home": "TEN",
+        "away": "NYJ",
+        "pick": "PASS",
+        "market_spread_at_pick": 1.5,
+        "result_ats": null,
+        "clv": null
+      },
+      {
+        "season": 2026,
+        "week": 1,
+        "game_id": "2026_01_SF_LA",
+        "home": "LA",
+        "away": "SF",
+        "pick": "LOCKED",
+        "market_spread_at_pick": null,
+        "result_ats": null,
+        "clv": null
+      },
+      {
+        "season": 2026,
+        "week": 1,
+        "game_id": "2026_01_TB_CIN",
+        "home": "CIN",
+        "away": "TB",
+        "pick": "AWAY",
+        "market_spread_at_pick": 3.5,
+        "result_ats": null,
+        "clv": null
+      },
+      {
+        "season": 2026,
+        "week": 1,
+        "game_id": "2026_01_WAS_PHI",
+        "home": "PHI",
+        "away": "WAS",
+        "pick": "PASS",
+        "market_spread_at_pick": 6.0,
+        "result_ats": null,
+        "clv": null
+      }
+    ],
+    "source": "picks.csv",
+    "benchmark": "pinnacle"
+  },
   "warnings": [
     "PFR cached unavailable response (403) for https://www.pro-football-reference.com/players/injuries.htm | PFR cached unavailable response (403) for https://www.pro-football-reference.com/fantasy/QB-fantasy-matchups.htm"
   ],

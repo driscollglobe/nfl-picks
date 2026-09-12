@@ -112,6 +112,7 @@ export type BacktestRow = {
 };
 
 export type DashboardData = {
+  tracking: import("@/components/tracking-panel").TrackingData;
   generatedAt: string;
   season: number;
   week: number;
