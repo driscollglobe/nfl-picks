@@ -236,10 +236,11 @@ export default function Home() {
     <main className="driscoll-app">
       <Tabs value={activeView} onValueChange={(value) => setActiveView(value as ViewName)} className="app-frame">
         <header className="app-topbar">
-          <div className="app-brand">
-            <Image src="/driscoll-logo.png" alt="Driscoll bulldog" width={48} height={48} unoptimized priority />
-            <div><strong>Driscoll<span> / NFL</span></strong><p>Model workspace</p></div>
+          <div className="edition-meta">
+            <Image src="/driscoll-logo.png" alt="Driscoll bulldog" width={44} height={44} unoptimized priority />
+            <div><strong>The football edition</strong><span>{dashboard.season} season · Week {dashboard.week}</span></div>
           </div>
+          <div className="app-brand"><strong>DRISCOLL GLOBE</strong><p>Football · Numbers · Perspective</p></div>
           <TabsList variant="line" aria-label="Dashboard views" className="app-navigation">
             <TabsTrigger value="board"><Activity size={16} />Game board</TabsTrigger>
             <TabsTrigger value="ratings"><Trophy size={16} />Ratings</TabsTrigger>
@@ -251,7 +252,7 @@ export default function Home() {
         <div className="app-content">
           <div className="workspace-heading">
             <div><div className="season-label"><span />{dashboard.season} season / Week {dashboard.week}</div>
-            <h1>{activeView === "board" ? "The game board" : activeView === "ratings" ? "Power ratings" : activeView === "backtest" ? "The track record" : "Inside the model"}</h1>
+            <h1>{activeView === "board" ? `Week ${dashboard.week}, by the numbers.` : activeView === "ratings" ? "The power rankings." : activeView === "backtest" ? "The record, without spin." : "Inside the model."}</h1>
             <p>{activeView === "board" ? "Find the gap between your model and the market." : "Every assumption, input, and result in the open."}</p></div>
             <div className="quick-stats"><div><span>Qualifying picks</span><strong>{playable.length}<small> / {dashboard.games.length}</small></strong></div><div><span>Largest edge</span><strong>{topEdge.toFixed(1)}<small> pts</small></strong></div></div>
           </div>
@@ -264,7 +265,7 @@ export default function Home() {
           <TabsContent value="ratings"><RatingsTable ratings={dashboard.ratings} epaWeight={settings.epaWeight} /></TabsContent>
           <TabsContent value="backtest"><BacktestPanel rows={dashboard.backtest} breakEvenRate={dashboard.defaults.breakEvenRate} selectedThreshold={settings.threshold} onSelectThreshold={(threshold) => updateSettings({ threshold })} /></TabsContent>
           <TabsContent value="method"><Methodology generatedAt={dashboard.generatedAt} source={dashboard.source} warnings={dashboard.warnings} /></TabsContent>
-          <footer className="app-footer"><span>DRISCOLL NFL MODEL</span><span>Exploration only · Changes here do not alter your saved picks.</span></footer>
+          <footer className="app-footer"><span>DRISCOLL GLOBE / FOOTBALL</span><span>Exploration only · Changes here do not alter your saved picks.</span></footer>
         </div>
       </Tabs>
     </main>
