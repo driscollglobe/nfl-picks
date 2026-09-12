@@ -11,7 +11,7 @@
 }
 @font-face {
   font-family: 'Benguiat';
-  src: url('/fonts/benguiat-bold.ttf') format('truetype');
+  src: url('/fonts/itc-benguiat-bold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
