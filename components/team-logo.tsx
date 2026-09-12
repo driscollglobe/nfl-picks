@@ -1,15 +1,15 @@
 import Image from "next/image";
 
 const TEAM_ASSETS: Record<string, string> = {
-  ARI: "arizona-cardinals", ATL: "atlanta-falcons", BAL: "baltimore-ravens",
+  ARI: "arizona-cardinals-v2", ATL: "atlanta-falcons", BAL: "baltimore-ravens",
   BUF: "buffalo-bills", CAR: "carolina-panthers", CHI: "chicago-bears",
   CIN: "cincinnati-bengals", CLE: "cleveland-browns", DAL: "dallas-cowboys",
-  DEN: "denver-broncos", DET: "detroit-lions", GB: "green-bay-packers",
+  DEN: "denver-broncos", DET: "detroit-lions-v2", GB: "green-bay-packers",
   HOU: "houston-texans", IND: "indianapolis-colts", JAX: "jacksonville-jaguars",
-  KC: "kansas-city-chiefs", LV: "las-vegas-raiders", LAC: "los-angeles-chargers",
+  KC: "kansas-city-chiefs-v2", LV: "las-vegas-raiders", LAC: "los-angeles-chargers",
   LA: "los-angeles-rams", LAR: "los-angeles-rams", MIA: "miami-dolphins",
-  MIN: "minnesota-vikings", NE: "new-england-patriots", NO: "new-orleans-saints",
-  NYG: "new-york-giants", NYJ: "new-york-jets", PHI: "philadelphia-eagles",
+  MIN: "minnesota-vikings", NE: "new-england-patriots-v2", NO: "new-orleans-saints-v2",
+  NYG: "new-york-giants-v2", NYJ: "new-york-jets", PHI: "philadelphia-eagles",
   PIT: "pittsburgh-steelers", SF: "san-francisco-49ers", SEA: "seattle-seahawks",
   TB: "tampa-bay-buccaneers", TEN: "tennessee-titans", WAS: "washington-commanders",
   JAC: "jacksonville-jaguars", OAK: "las-vegas-raiders", SD: "los-angeles-chargers",
