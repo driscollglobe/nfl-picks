@@ -1,3 +1,4 @@
+import { TeamLabel } from "@/components/team-logo";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
 type Summary = {
@@ -44,7 +45,7 @@ export function TrackingPanel({ data, season, generatedAt }: { data: TrackingDat
     <h2>Season totals</h2>
     <Table><TableHeader><TableRow><TableHead>Season</TableHead><TableHead>Picks</TableHead><TableHead>W–L–P</TableHead><TableHead>Win rate</TableHead><TableHead>Pending</TableHead></TableRow></TableHeader><TableBody>{data.seasons.map((row) => <TableRow key={row.season}><TableCell>{row.season}</TableCell><TableCell>{row.picks}</TableCell><TableCell>{record(row)}</TableCell><TableCell>{percentage(row.winRate)}</TableCell><TableCell>{row.pending}</TableCell></TableRow>)}</TableBody></Table>
     <h2>Saved pick log</h2>
-    <Table><TableHeader><TableRow>{["Season / week", "Matchup", "Saved pick", "ATS result"].map((h) => <TableHead key={h}>{h}</TableHead>)}</TableRow></TableHeader><TableBody>{data.rows.map((row) => <TableRow key={`${row.season}-${row.game_id}`}><TableCell>{row.season} / {row.week}</TableCell><TableCell>{row.away} @ {row.home}</TableCell><TableCell>{savedSide(row)}</TableCell><TableCell>{row.pick === "HOME" || row.pick === "AWAY" ? row.result_ats || "Pending" : "Not a pick"}</TableCell></TableRow>)}</TableBody></Table>
+    <Table><TableHeader><TableRow>{["Season / week", "Matchup", "Saved pick", "ATS result"].map((h) => <TableHead key={h}>{h}</TableHead>)}</TableRow></TableHeader><TableBody>{data.rows.map((row) => <TableRow key={`${row.season}-${row.game_id}`}><TableCell>{row.season} / {row.week}</TableCell><TableCell><span className="inline-flex items-center gap-2"><TeamLabel team={row.away} size={22} /> @ <TeamLabel team={row.home} size={22} /></span></TableCell><TableCell>{savedSide(row)}</TableCell><TableCell>{row.pick === "HOME" || row.pick === "AWAY" ? row.result_ats || "Pending" : "Not a pick"}</TableCell></TableRow>)}</TableBody></Table>
     <div className="tracking-notice"><strong>How this stays up to date</strong><p>Thursday’s picks are saved in the project. Tuesday’s update grades them and refreshes these totals. The website then needs to be republished; it does not currently update itself.</p><p>Pinnacle CLV uses captured near-close quotes. Missing quotes stay blank.</p><small>Snapshot exported {new Date(generatedAt).toLocaleString("en-US", { timeZone: "America/New_York" })} ET · Source: {data.source}</small></div>
   </section>;
 }

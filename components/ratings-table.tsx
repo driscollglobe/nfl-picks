@@ -1,4 +1,5 @@
 import { ArrowDown, ArrowUp } from "lucide-react";
+import { TeamLabel } from "@/components/team-logo";
 
 import { blendedRatings, signed, type Rating } from "@/lib/model";
 
@@ -24,7 +25,7 @@ export function RatingsTable({ ratings, epaWeight }: RatingsTableProps) {
             No. 1 team
           </p>
           <p className="mt-1 text-2xl font-semibold">
-            {rows[0]?.team ?? "—"}
+            {rows[0] ? <TeamLabel team={rows[0].team} size={36} /> : "—"}
             <span className="ml-2 font-mono text-sm text-[#a9ff62]">
               {rows[0] ? signed(rows[0].blendedRating) : ""}
             </span>
@@ -80,7 +81,7 @@ export function RatingsTable({ ratings, epaWeight }: RatingsTableProps) {
                 <span className="font-mono text-xs text-[#67776f]">
                   {(index + 1).toString().padStart(2, "0")}
                 </span>
-                <span className="font-semibold text-[#edf1eb]">{row.team}</span>
+                <span className="font-semibold text-[#edf1eb]"><TeamLabel team={row.team} size={24} /></span>
                 <span className="font-mono text-xs text-[#9aa69f]">
                   {signed(row.epa_rating)}
                 </span>

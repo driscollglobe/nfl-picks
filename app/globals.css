@@ -216,6 +216,9 @@
 .game-board-shell [data-slot=accordion-trigger] p.text-base { font-family:var(--font-benguiat); font-weight:700; letter-spacing:.5px; }
 
 /* All visible copy, including portaled controls, uses the requested all-caps style. */
+.team-logo { display:inline-block; object-fit:contain; flex-shrink:0; vertical-align:middle; }
+.team-label { display:inline-flex; align-items:center; gap:6px; white-space:nowrap; vertical-align:middle; }
+
 body, body *, body *::before, body *::after, input::placeholder, textarea::placeholder {
   text-transform: uppercase !important;
 }

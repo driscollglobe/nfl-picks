@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { TeamLabel, TeamLogo } from "@/components/team-logo";
 import { Check, CloudSun, LockKeyhole, Minus } from "lucide-react";
 
 import {
@@ -101,8 +102,8 @@ export function GameBoard({ games, threshold }: GameBoardProps) {
 
       <div className="board-toolbar mb-3 flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
         <div>
-          <h2 className="text-base font-semibold tracking-tight">
-            Matchups
+          <h2 className="flex items-center gap-2 text-base font-semibold tracking-tight">
+            <TeamLogo team="NFL" size={30} /> Matchups
           </h2>
           <p className="mt-1 text-xs text-[#718078]">
             {agreementCount} picks agree with ELWAY · {passCount} passes · Open a matchup for details
@@ -175,9 +176,9 @@ export function GameBoard({ games, threshold }: GameBoardProps) {
                     <div className="grid w-full gap-4 py-5 text-left md:grid-cols-[1.35fr_.8fr_.8fr_.65fr_.75fr] md:items-center">
                       <div>
                         <p className="text-base font-semibold tracking-tight text-[#f4f6ed]">
-                          {game.away_team}
+                          <TeamLabel team={game.away_team} />
                           <span className="mx-2 font-normal text-[#526159]">@</span>
-                          {game.home_team}
+                          <TeamLabel team={game.home_team} />
                         </p>
                         <p className="mt-1 font-mono text-[10px] text-[#77877f]">
                           {kickoffLabel(game.kickoff)} ET
