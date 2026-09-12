@@ -2,13 +2,28 @@
 @import 'tw-animate-css';
 @import 'shadcn/tailwind.css';
 
+@font-face {
+  font-family: 'Benguiat';
+  src: url('/fonts/benguiat-book.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Benguiat';
+  src: url('/fonts/benguiat-bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-benguiat);
+  --font-mono: var(--font-benguiat);
   --font-heading: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -50,6 +65,7 @@
 
 
 :root, .dark {
+  --font-benguiat: 'Benguiat', Georgia, serif;
   --background: #faf9f7; --foreground: #292c27;
   --card: #fff; --card-foreground: #292c27;
   --popover: #fff; --popover-foreground: #292c27;
@@ -61,7 +77,7 @@
 }
 @layer base {
   * { @apply border-border outline-ring/50; }
-  body { margin: 0; background: var(--background); color: var(--foreground); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 16px; }
+  body { margin: 0; background: var(--background); color: var(--foreground); font-family:var(--font-benguiat); font-size: 16px; }
 }
 .driscoll-app { min-height:100vh; background:var(--background); color:var(--foreground); }
 .app-frame { display:block; }
@@ -72,7 +88,7 @@
 .edition-meta strong { color:#333b30; font-weight:600; display:block; margin-bottom:3px; }
 .app-brand { display:flex; justify-content:center; align-items:center; gap:18px; text-align:left; }
 .bulldog-mark { width:112px; height:112px; object-fit:contain; mix-blend-mode:multiply; flex-shrink:0; }
-.app-brand strong { font-family:Impact, 'Arial Narrow', sans-serif; font-size:clamp(28px,3vw,38px); font-weight:700; color:#24262b; letter-spacing:1.2px; line-height:1.05; }
+.app-brand strong { font-family:var(--font-benguiat); font-size:clamp(28px,3vw,38px); font-weight:700; color:#24262b; letter-spacing:1.2px; line-height:1.05; }
 .app-brand p { margin:8px 0 0; font-size:10px; letter-spacing:2.8px; color:#6c6c5e; text-transform:uppercase; }
 .app-navigation[data-slot=tabs-list] { grid-column:1/-1; display:flex; justify-content:center; gap:30px; width:100%; margin-top:24px; padding:0; height:44px; border-radius:0; border-top:1px solid #dbd6cc; border-bottom:3px double #51594c; background:transparent; }
 .app-navigation [data-slot=tabs-trigger] { height:43px; color:#686b5e; background:transparent; font-size:14px; font-weight:400; padding:0 2px; border:0; border-radius:0; box-shadow:none; flex:none; position:relative; }
@@ -85,13 +101,13 @@
 .workspace-heading { display:flex; align-items:center; justify-content:space-between; gap:20px; padding-bottom:22px; margin-bottom:24px; border-bottom:1px solid #dad6ca; }
 .season-label { display:flex; gap:8px; align-items:center; color:#727365; font-size:11px; text-transform:uppercase; letter-spacing:1.4px; }
 .season-label > span { display:none; }
-.workspace-heading h1 { font-family:Impact, 'Arial Narrow', sans-serif; font-size:clamp(26px,2.8vw,36px); letter-spacing:-1px; line-height:1.15; font-weight:500; margin:9px 0 7px; }
+.workspace-heading h1 { font-family:var(--font-benguiat); font-size:clamp(26px,2.8vw,36px); letter-spacing:-1px; line-height:1.15; font-weight:700; margin:9px 0 7px; }
 .workspace-heading p { font-size:14px; color:#76776c; margin:0; }
 .quick-stats { display:flex; gap:32px; }
 .quick-stats > div { padding-left:24px; border-left:1px solid #dcd8cc; }
 .quick-stats span { display:block; font-size:12px; color:#727366; }
-.quick-stats strong { display:block; font-family:Impact, 'Arial Narrow', sans-serif; font-size:32px; font-weight:400; letter-spacing:-1px; margin-top:5px; font-variant-numeric:tabular-nums; color:#a92235; }
-.quick-stats small { font-family:Arial,sans-serif; font-size:12px; color:#7c8072; font-weight:400; letter-spacing:0; }
+.quick-stats strong { display:block; font-family:var(--font-benguiat); font-size:32px; font-weight:700; letter-spacing:-1px; margin-top:5px; font-variant-numeric:tabular-nums; color:#a92235; }
+.quick-stats small { font-family:var(--font-benguiat); font-size:12px; color:#7c8072; font-weight:400; letter-spacing:0; }
 .model-workspace { display:grid; grid-template-columns:minmax(0,1fr) 286px; gap:24px; align-items:start; }
 .model-workspace > div { min-width:0; }
 .tuning-panel { position:sticky; top:24px; border-left:1px solid #d8d5ca; padding-left:22px; }
@@ -132,7 +148,7 @@
 .game-board-shell [data-slot=accordion-trigger] { padding:0 20px; transition:background .15s; }
 .game-board-shell [data-slot=accordion-trigger]:hover { background:#f7f1e7; }
 .game-board-shell [data-slot=accordion-trigger] > div { padding-block:24px; }
-.game-board-shell [data-slot=accordion-trigger] p.text-base { font-family:Impact, 'Arial Narrow', sans-serif; font-size:23px; letter-spacing:-.6px; font-weight:500; }
+.game-board-shell [data-slot=accordion-trigger] p.text-base { font-family:var(--font-benguiat); font-size:23px; letter-spacing:-.6px; font-weight:700; }
 .game-board-shell [data-slot=accordion-trigger] .font-mono.text-sm { font-size:14px; }
 .game-board-shell [data-slot=accordion-trigger] > svg { align-self:center; color:#a2a8b3; width:14px; }
 .game-board-shell [class~="bg-[#a9ff62]"] { border-radius:6px; white-space:nowrap; font-weight:600; padding:6px 9px; }
@@ -174,19 +190,19 @@
   .app-footer { flex-direction:column; }
 }
 @media(max-width:420px) { .tuning-panel aside > div:nth-child(2) { grid-template-columns:1fr; } }
-.board-toolbar h2, .tuning-panel aside > div:first-child > div, .driscoll-app h2, .driscoll-app h3 { font-family:Impact, 'Arial Narrow', sans-serif; }
+.board-toolbar h2, .tuning-panel aside > div:first-child > div, .driscoll-app h2, .driscoll-app h3 { font-family:var(--font-benguiat); }
 .board-toolbar h2 { font-size:20px; font-weight:600; }
 .tuning-panel aside > div:first-child > div { font-size:18px; }
 .tuning-panel aside > div:first-child > div > svg { display:none; }
 .driscoll-app [data-slot=table-head] { text-transform:none; letter-spacing:0; }
 @media(prefers-reduced-motion:reduce) { .driscoll-app * { transition:none!important; } }
 
-.workspace-heading h1 { text-transform:uppercase; font-style:italic; font-weight:400; letter-spacing:.3px; }
+.workspace-heading h1 { text-transform:uppercase; font-style:normal; font-weight:700; letter-spacing:.3px; }
 .tracking-stats { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); border-block:1px solid #dedbd2; }
 .tracking-stats > div { padding:20px; border-right:1px solid #dedbd2; }
 .tracking-stats > div:last-child { border-right:0; }
 .tracking-stats span { display:block; color:#737373; font-size:12px; }
-.tracking-stats strong { display:block; margin-top:8px; font-family:Impact,'Arial Narrow',sans-serif; font-weight:400; font-size:34px; letter-spacing:.5px; }
+.tracking-stats strong { display:block; margin-top:8px; font-family:var(--font-benguiat); font-weight:700; font-size:34px; letter-spacing:.5px; }
 .tracking-note { color:#737373; font-size:14px; line-height:1.6; margin:20px 0; max-width:800px; }
 .tracking-panel h2 { margin:28px 0 12px; font-size:24px; }
 .tracking-panel [data-slot=table-container] { border:1px solid #dedbd2; border-radius:8px; background:#fff; }
@@ -196,5 +212,5 @@
 .tracking-notice p { font-size:14px; line-height:1.6; margin:8px 0; max-width:800px; color:#696969; }
 .tracking-notice small { font-size:12px; color:#777; }
 @media(max-width:700px) { .tracking-stats { grid-template-columns:repeat(2,minmax(0,1fr)); } .app-navigation[data-slot=tabs-list] { gap:14px; } .app-navigation [data-slot=tabs-trigger] { font-size:12px; } }
-.driscoll-app h2, .driscoll-app h3 { text-transform:uppercase; font-weight:400; letter-spacing:.4px; }
-.game-board-shell [data-slot=accordion-trigger] p.text-base { font-family:Impact, "Arial Narrow", sans-serif; font-weight:400; letter-spacing:.5px; }
+.driscoll-app h2, .driscoll-app h3 { text-transform:uppercase; font-weight:700; letter-spacing:.4px; }
+.game-board-shell [data-slot=accordion-trigger] p.text-base { font-family:var(--font-benguiat); font-weight:700; letter-spacing:.5px; }
